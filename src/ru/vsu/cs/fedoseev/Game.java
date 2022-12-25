@@ -184,27 +184,12 @@ public class Game {
             checkCheck(figureTypeListMap);
             printStateOfBoard(null);
             players.add(currentPlayer);
-            /*if(k == 20) {
-                break;
-            }*/
             if(check) {
                 break;
             }
             k++;
         }
     }
-
-    /*private Figure defineFigureForDefence(Map<FigureType, List<Figure>> figureTypeListMap, Player enemy) {
-        FigureType[] figures = FigureType.values();
-        Figure result = null;
-        for(FigureType ft: figures) {
-            for(Figure currFigure: figureTypeListMap.get(ft)) {
-                IFigureStepService figureStepService = serviceMap.get(currFigure.getType());
-                Map<Boolean, List<Cell>> cellsForStep = figureStepService.process(currFigure, this);
-            }
-        }
-        return result;
-    }*/
 
     private void checkCheck(Map<FigureType, List<Figure>> figureTypeListMap) {
         FigureType[] figures = FigureType.values();
@@ -280,14 +265,6 @@ public class Game {
         }
     }
 
-    /*private Cell defineFinishCellToStep(Map<Boolean, List<Cell>> cellsForStep, Figure figure) {
-        if(cellsForStep.get(true).size() != 0) {
-            return cellsForStep.get(true).get((int)(Math.random()*((cellsForStep.get(true).size()))));
-        } else {
-            return cellsForStep.get(false).get((int)(Math.random()*((cellsForStep.get(false).size()))));
-        }
-    }*/
-
     private Figure defineFigureForStep(Map<FigureType, List<Figure>> figureTypeListMap) {
         FigureType[] figures = FigureType.values();
         List<Figure> empty = new ArrayList<>();
@@ -316,63 +293,6 @@ public class Game {
             return empty.get((int) (Math.random() * (empty.size())));
         }
     }
-
-    /*private Figure defineFigureForStep(Map<FigureType, List<Figure>> figureTypeListMap) {
-        FigureType[] figures = FigureType.values();
-        List<Figure> empty = new ArrayList<>();
-        Map<Figure, List<Cell>> occupiedMap = new HashMap<>();
-        List<Figure> occupiedList = new ArrayList<>();
-        Figure strongest = null;
-        int biggestEnemyValue = 0;
-        for(FigureType ft: figures) {
-            for(Figure currFigure: figureTypeListMap.get(ft)) {
-                IFigureStepService figureStepService = serviceMap.get(currFigure.getType());
-                Map<Boolean, List<Cell>> cellsForStep = figureStepService.process(currFigure, this);
-                if(cellsForStep.get(true).size() != 0) {
-                    occupiedMap.put(currFigure, cellsForStep.get(true));
-                    occupiedList.add(currFigure);
-                } else if(cellsForStep.get(false).size() != 0) {
-                    empty.add(currFigure);
-                }
-            }
-        }
-        if(occupiedList.size() != 0) {
-            for(Figure figure: occupiedList) {
-                for (Cell cell : occupiedMap.get(figure)) {
-                    int currEnemyValue = cellToFigureMap.get(cell).getType().getValue();
-                    if (currEnemyValue > biggestEnemyValue) {
-                        strongest = figure;
-                        biggestEnemyValue = currEnemyValue;
-                    }
-                }
-            }
-            return strongest;
-        } else {
-            return empty.get((int) (Math.random() * (empty.size())));
-        }
-    }*/
-
-    /*private Figure defineFigureForStep(Map<FigureType, List<Figure>> figureTypeListMap) {
-        FigureType[] figures = FigureType.values();
-        List<Figure> empty = new ArrayList<>();
-        List<Figure> occupied = new ArrayList<>();
-        for(FigureType ft: figures) {
-            for(Figure currFigure: figureTypeListMap.get(ft)) {
-                IFigureStepService figureStepService = serviceMap.get(currFigure.getType());
-                Map<Boolean, List<Cell>> cellsForStep = figureStepService.process(currFigure, this);
-                if(cellsForStep.get(true).size() != 0) {
-                    occupied.add(currFigure);
-                } else if(cellsForStep.get(false).size() != 0) {
-                    empty.add(currFigure);
-                }
-            }
-        }
-        if(occupied.size() != 0) {
-            return occupied.get((int)(Math.random()*(occupied.size())));
-        } else {
-            return empty.get((int) (Math.random() * (empty.size())));
-        }
-    }*/
 
     public void printStateOfBoard(Map<Boolean, List<Cell>> cellsForStep) {
         System.out.println();

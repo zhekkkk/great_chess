@@ -19,21 +19,4 @@ public class Figure {
         return color;
     }
 
-    /*KING("\u2654"),
-    QUEEN("\u2655"),
-    ROOK("\u2656"),
-    BISHOP("\u2657"),
-    KNIGHT("\u2658"),
-    PAWN("\u2659"),
-    GIRAFFE("\u2659"),
-
-    private final String uiString;
-
-    ChessPiece(String uiString) {
-        this.uiString = uiString;
-    }
-
-    public String getUiString() {
-        return uiString;
-    }*/
 }

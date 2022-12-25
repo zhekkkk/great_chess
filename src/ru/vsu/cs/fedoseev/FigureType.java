@@ -12,17 +12,6 @@ public enum FigureType {
     GIRAFFE     ("\uFFE5", "\uFFE5", 7),
     KING        ("\u2654", "\u265A", 100);
 
-    /*PAWN("Pw", "Pb"),
-    KING("Kw", "Kb"),
-    QUEEN("Qw", "Qb"),
-    ROOK("Rw","Rb"),
-    BISHOP("Bw", "Bb"),
-    KNIGHT("Kw", "Kb"),
-
-    GIRAFFE("Gw", "Gb"),
-    WAR_MACHINE("Ww", "Wb"),
-    VIZIER("Vw", "Vb");*/
-
     private final String white;
     private final String black;
     private final int value;

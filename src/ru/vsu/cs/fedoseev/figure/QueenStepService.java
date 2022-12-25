@@ -20,7 +20,6 @@ public class QueenStepService implements IFigureStepService{
             throw new RuntimeException();
         }
         Cell cell = game.getFigureCellMap().get(figure);
-        //Map<Directions, Cell> cells = cell.getDirectionsMap();
         Map<Boolean, List<Cell>> cellsForStep = new HashMap<>();
         List<Cell> trues = new ArrayList<>();
         List<Cell> falses = new ArrayList<>();
